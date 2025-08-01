@@ -1,6 +1,6 @@
 import { List, Action, ActionPanel, closeMainWindow, getPreferenceValues, Toast, showToast } from "@raycast/api";
 import React, { useEffect, useState } from "react";
-import { resolve } from 'path';
+import { resolve } from "path";
 import getCurrentWorkspace from "./utils/get-workspace";
 import { findAllPackageScripts } from "./utils/find-package-scripts";
 import connectionManager from "./utils/connection-manager";
@@ -27,8 +27,8 @@ export default function () {
     loadData();
   }, []);
 
-  const scriptsList = scripts.filter(item => item.type === 'script');
-  const binsList = scripts.filter(item => item.type === 'bin');
+  const scriptsList = scripts.filter((item) => item.type === "script");
+  const binsList = scripts.filter((item) => item.type === "bin");
 
   function getDetailMarkdown(item) {
     return `
@@ -40,27 +40,31 @@ export default function () {
 ${item.relativePath}
 \`\`\`
 
-${item.type === 'script' ? `
+${
+  item.type === "script"
+    ? `
 
 ### Command
 \`\`\`bash
 ${item.command}
 \`\`\`
 
-` : `
+`
+    : `
 
 ### Binary Path
 \`\`\`
 ${item.path}
 \`\`\`
 
-`}
+`
+}
 
     `;
   }
 
   return (
-    <List isLoading={loading} isShowingDetail={!loading && (scriptsList.length + binsList.length) > 0}>
+    <List isLoading={loading} isShowingDetail={!loading && scriptsList.length + binsList.length > 0}>
       {!workspace ? (
         <List.EmptyView title="No Workspace Found" />
       ) : (
@@ -73,9 +77,7 @@ ${item.path}
                   key={`script-${index}`}
                   title={item.name}
                   subtitle={item.command}
-                  detail={
-                    <List.Item.Detail markdown={getDetailMarkdown(item)} />
-                  }
+                  detail={<List.Item.Detail markdown={getDetailMarkdown(item)} />}
                   actions={
                     <ActionPanel>
                       <Action
@@ -84,9 +86,11 @@ ${item.path}
                           try {
                             await connectionManager.sendCommand({
                               command: "workbench.action.terminal.sendSequence",
-                              args: { text: `cd ${resolve(workspace, item.relativePath, '..')}; ${getPreferenceValues()?.nodePackageManager || "npm"} run ${item.name}\n` }
+                              args: {
+                                text: `cd ${resolve(workspace, item.relativePath, "..")}; ${getPreferenceValues()?.nodePackageManager || "npm"} run ${item.name}\n`,
+                              },
                             });
-                            await closeMainWindow()
+                            await closeMainWindow();
                           } catch (error) {
                             showToast({
                               title: "Operation failed",
@@ -111,9 +115,7 @@ ${item.path}
                   key={`bin-${index}`}
                   title={item.name}
                   subtitle={item.path}
-                  detail={
-                    <List.Item.Detail markdown={getDetailMarkdown(item)} />
-                  }
+                  detail={<List.Item.Detail markdown={getDetailMarkdown(item)} />}
                   actions={
                     <ActionPanel>
                       <Action
@@ -122,9 +124,9 @@ ${item.path}
                           try {
                             await connectionManager.sendCommand({
                               command: "workbench.action.terminal.sendSequence",
-                              args: { text: `cd ${resolve(workspace, item.relativePath, '..')}; ${item.name}\n` }
+                              args: { text: `cd ${resolve(workspace, item.relativePath, "..")}; ${item.name}\n` },
                             });
-                            await closeMainWindow()
+                            await closeMainWindow();
                           } catch (error) {
                             showToast({
                               title: "Operation failed",

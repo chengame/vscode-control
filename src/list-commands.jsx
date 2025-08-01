@@ -2,31 +2,31 @@ import { Action, ActionPanel, List, launchCommand, LaunchType, getPreferenceValu
 import packageJson from "../package.json";
 
 const commands = packageJson.commands
-  .map(cmd => ({
+  .map((cmd) => ({
     name: cmd.name,
-    title: cmd.title, 
+    title: cmd.title,
     description: cmd.description,
-    icon: cmd._icon
+    icon: cmd._icon,
   }))
-  .filter(cmd => cmd.icon);
+  .filter((cmd) => cmd.icon);
 
 const commandsBySection = commands.reduce((acc, cmd) => {
-  const [section, ...titleParts] = cmd.title.split(':');
+  const [section, ...titleParts] = cmd.title.split(":");
   const sectionName = section.trim();
-  const commandTitle = titleParts.join(':').trim();
+  const commandTitle = titleParts.join(":").trim();
 
   if (!acc[sectionName]) acc[sectionName] = [];
 
   acc[sectionName].push({
     ...cmd,
-    displayTitle: commandTitle || cmd.title
+    displayTitle: commandTitle || cmd.title,
   });
 
   return acc;
 }, {});
 
 export default function Command() {
-  console.log("getPreferenceValues():", getPreferenceValues())
+  console.log("getPreferenceValues():", getPreferenceValues());
 
   return (
     <List>
@@ -43,9 +43,9 @@ export default function Command() {
                   <Action
                     title="Run Command"
                     onAction={async () => {
-                      await launchCommand({ 
+                      await launchCommand({
                         name: cmd.name,
-                        type: LaunchType.UserInitiated 
+                        type: LaunchType.UserInitiated,
                       });
                     }}
                   />

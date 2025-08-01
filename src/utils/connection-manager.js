@@ -1,5 +1,5 @@
 import { getPreferenceValues } from "@raycast/api";
-import WebSocket from 'ws';
+import WebSocket from "ws";
 
 class ConnectionManager {
   constructor() {
@@ -11,7 +11,7 @@ class ConnectionManager {
     this.expireTimer = null;
     this.PORT = getPreferenceValues()?.remoteControlPort || 3710;
     this.TIMEOUT = 5 * 60 * 1000; // 5 mins
-    
+
     ConnectionManager.instance = this;
   }
 
@@ -34,15 +34,15 @@ class ConnectionManager {
   createConnection() {
     return new Promise((resolve, reject) => {
       this.ws = new WebSocket(`ws://localhost:${this.PORT}`);
-      
-      this.ws.on('open', () => {
-        console.log('Connected to VS Code socket');
+
+      this.ws.on("open", () => {
+        console.log("Connected to VS Code socket");
         this.resetTimer();
         resolve(this.ws);
       });
 
-      this.ws.on('error', (error) => {
-        console.error('WebSocket error:', error);
+      this.ws.on("error", (error) => {
+        console.error("WebSocket error:", error);
         this.close();
         reject(error?.code == "ECONNREFUSED" ? "Connection refused. Is VS Code running?" : error);
       });
@@ -51,9 +51,9 @@ class ConnectionManager {
 
   resetTimer() {
     if (this.expireTimer) clearTimeout(this.expireTimer);
-    
+
     this.expireTimer = setTimeout(() => {
-      console.log('Closing connection to socket after inactivity');
+      console.log("Closing connection to socket after inactivity");
       this.close();
     }, this.TIMEOUT);
   }

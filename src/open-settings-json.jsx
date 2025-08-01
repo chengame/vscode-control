@@ -1,18 +1,18 @@
 import { Toast, showToast, closeMainWindow } from "@raycast/api";
-import connectionManager from "./utils/connection-manager"
+import connectionManager from "./utils/connection-manager";
 
 export default async function Command() {
   try {
     await connectionManager.sendCommand({
       command: "workbench.action.openSettings",
-      args: {}
+      args: {},
     });
-    
+
     await showToast({
       title: "Settings opened!",
       style: Toast.Style.Success,
     });
-    await closeMainWindow()
+    await closeMainWindow();
   } catch (error) {
     console.error("Operation failed:", error);
     showToast({
