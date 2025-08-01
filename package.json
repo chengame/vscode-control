@@ -1,0 +1,197 @@
+{
+  "$schema": "https://www.raycast.com/schemas/extension.json",
+  "name": "vscode-control",
+  "title": "Visual Studio Code - Control",
+  "description": "Execute commands inside of your VS Code window from Raycast",
+  "icon": "extension-icon.png",
+  "author": "johan-perso",
+  "license": "MIT",
+  "keywords": [
+    "vscode",
+    "visualstudiocode",
+    "code",
+    "codium",
+    "cursor",
+    "trae",
+    "windsurf"
+  ],
+  "commands": [
+    {
+      "name": "list-commands",
+      "title": "VS Code Control: List Commands",
+      "description": "Show a list of all runnable commands",
+      "mode": "view"
+    },
+
+    {
+      "name": "scripts-npm",
+      "title": "Scripts: npm",
+      "description": "List the NPM scripts that can be executed",
+      "mode": "view",
+      "_icon": "📦",
+      "disabledByDefault": true
+    },
+    {
+      "name": "scripts-flutter",
+      "title": "Scripts: Flutter",
+      "description": "List the Flutter devices that can be used to run an app",
+      "mode": "view",
+      "_icon": "📦",
+      "disabledByDefault": true
+    },
+
+    {
+      "name": "open-settings-ui",
+      "title": "Settings: Open UI",
+      "description": "Directly open the settings UI inside of VS Code",
+      "mode": "no-view",
+      "_icon": "⚙️"
+    },
+    {
+      "name": "open-settings-json",
+      "title": "Settings: Open JSON File",
+      "description": "Directly open the settings.json file inside of VS Code",
+      "mode": "no-view",
+      "_icon": "⚙️"
+    },
+    {
+      "name": "open-new-terminal",
+      "title": "Terminal: Open New Session",
+      "description": "Open a new terminal session",
+      "mode": "no-view",
+      "_icon": "🧑‍💻"
+    },
+    {
+      "name": "toggle-terminal",
+      "title": "Terminal: Toggle Current Pane",
+      "description": "Show/Hide the current terminal pane",
+      "mode": "no-view",
+      "_icon": "🧑‍💻"
+    },
+    {
+      "name": "close-current-terminal",
+      "title": "Terminal: Close Current Session",
+      "description": "Close and exit the current terminal session",
+      "mode": "no-view",
+      "_icon": "🧑‍💻"
+    },
+    {
+      "name": "format-selected-code",
+      "title": "Format: Selected Code",
+      "description": "Format the currently selected code in the active editor",
+      "mode": "no-view",
+      "_icon": "🧹"
+    },
+    {
+      "name": "format-current-document",
+      "title": "Format: Current Document",
+      "description": "Format the currently open document in the active editor",
+      "mode": "no-view",
+      "_icon": "🧹"
+    },
+    {
+      "name": "flutter-new-project",
+      "title": "Flutter: New Project",
+      "description": "Create a new Flutter project",
+      "mode": "no-view",
+      "_icon": "📱",
+      "disabledByDefault": true
+    },
+    {
+      "name": "flutter-open-devtools",
+      "title": "Flutter: Open DevTools",
+      "description": "Open the Flutter DevTools in your default browser",
+      "mode": "no-view",
+      "_icon": "📱",
+      "disabledByDefault": true
+    },
+    {
+      "name": "flutter-hot-reload",
+      "title": "Flutter: Hot Reload",
+      "description": "Execute a hot reload in the current opened Flutter app",
+      "mode": "no-view",
+      "_icon": "📱",
+      "disabledByDefault": true
+    },
+    {
+      "name": "flutter-hot-restart",
+      "title": "Flutter: Hot Restart",
+      "description": "Execute a hot restart in the current opened Flutter app",
+      "mode": "no-view",
+      "_icon": "📱",
+      "disabledByDefault": true
+    }
+  ],
+  "preferences": [
+    {
+      "name": "remoteControlPort",
+      "type": "textfield",
+      "required": false,
+      "default": "3710",
+      "placeholder": "3710",
+      "title": "Remote Control Port",
+      "description": "Port used to connect to the VS Code Remote Control server. If you are using a custom port, make sure to set it in your VS Code settings as well."
+    },
+    {
+      "name": "nodePackageManager",
+      "type": "dropdown",
+      "required": false,
+      "title": "Node Package Manager",
+      "default": "npm",
+      "description": "Select the Node package manager to use when starting a script",
+      "data": [
+        {
+          "title": "NPM",
+          "value": "npm"
+        },
+        {
+          "title": "PNPM",
+          "value": "pnpm"
+        },
+        {
+          "title": "Bun",
+          "value": "bun"
+        }
+      ]
+    },
+    {
+      "name": "vscodePath",
+      "type": "directory",
+      "required": false,
+      "title": "VS Code Path",
+      "description": "Path to the VS Code user data directory. Required if you use another app than the default one. This is usually located at `~/Library/Application Support/Code` on macOS, but can vary based on your installation."
+    },
+    {
+      "name": "flutterPath",
+      "type": "file",
+      "required": false,
+      "title": "Flutter Path",
+      "description": "Path to the Flutter binary, used to start Flutter scripts"
+    }
+  ],
+  "dependencies": {
+    "@raycast/api": "^1.84.3",
+    "@raycast/utils": "^1.17.0",
+    "node-fetch": "^3.3.2",
+    "ws": "^8.18.3"
+  },
+  "devDependencies": {
+    "@raycast/eslint-config": "^1.0.11",
+    "@types/node": "20.8.10",
+    "@types/react": "18.3.3",
+    "eslint": "^8.57.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.4.5"
+  },
+  "scripts": {
+    "build": "ray build",
+    "dev": "ray develop",
+    "fix-lint": "ray lint --fix",
+    "lint": "ray lint",
+    "prepublishOnly": "echo \"\\n\\nIt seems like you are trying to publish the Raycast extension to npm.\\n\\nIf you did intend to publish it to npm, remove the \\`prepublishOnly\\` script and rerun \\`npm publish\\` again.\\nIf you wanted to publish it to the Raycast Store instead, use \\`npm run publish\\` instead.\\n\\n\" && exit 1",
+    "publish": "npx @raycast/api@latest publish"
+  },
+  "platforms": [
+    "macOS"
+  ]
+}
