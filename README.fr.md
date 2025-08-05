@@ -7,6 +7,8 @@ Une extension Raycast pour vous aider à interagir avec VS Code ou d'autres édi
 > Cette extension a été créée pour mon utilisation personnelle, mais peut-être qu'elle pourra aussi vous servir.  
 > Compatible avec macOS uniquement, elle ne fonctionnera pas avec Raycast pour Windows.
 
+https://github.com/user-attachments/assets/a121db46-a506-437e-8914-3aeecebe7e8d
+
 
 ## Commandes
 
