@@ -44,7 +44,11 @@ class ConnectionManager {
       this.ws.on("error", (error) => {
         console.error("WebSocket error:", error);
         this.close();
-        reject(error?.code == "ECONNREFUSED" ? "Connection refused. Is VS Code running?" : error);
+        reject(
+          error?.code == "ECONNREFUSED"
+            ? `Connection refused. Is VS Code running? Is Remote Control extension listening on port ${this.PORT}?`
+            : error,
+        );
       });
     });
   }

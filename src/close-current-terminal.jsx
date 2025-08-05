@@ -9,7 +9,7 @@ export default async function Command() {
     });
 
     await showToast({
-      title: "Terminal killed opened!",
+      title: "Terminal killed!",
       style: Toast.Style.Success,
     });
     await closeMainWindow();
