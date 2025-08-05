@@ -2,9 +2,9 @@
 
 # Visual Studio Code - Control
 
-Une extension Raycast pour vous aider à intéragir avec VS Code ou d'autres éditeurs basés sur celui-ci (Cursor, Windsurf, Trae, ...).
+Une extension Raycast pour vous aider à interagir avec VS Code ou d'autres éditeurs basés sur celui-ci (Cursor, Windsurf, Trae, ...).
 
-> Cette extension a été créé pour mon utilisation personnel, mais peut-être qu'elle pourra aussi vous servir.  
+> Cette extension a été créée pour mon utilisation personnelle, mais peut-être qu'elle pourra aussi vous servir.  
 > Compatible avec macOS uniquement, elle ne fonctionnera pas avec Raycast pour Windows.
 
 
