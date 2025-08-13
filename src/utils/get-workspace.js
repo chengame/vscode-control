@@ -4,9 +4,7 @@ import { homedir } from "os";
 import { join } from "path";
 
 function getCurrentWorkspace() {
-  const vscodeStorage =
-    getPreferenceValues()?.vscodePath ||
-    join(homedir(), "Library", "Application Support", "Code", "User", "globalStorage", "storage.json");
+  const vscodeStorage = join((getPreferenceValues()?.vscodePath || homedir(), "Library", "Application Support", "Code"), "User", "globalStorage", "storage.json");
 
   if (existsSync(vscodeStorage)) {
     const storage = JSON.parse(readFileSync(vscodeStorage, "utf8"));
